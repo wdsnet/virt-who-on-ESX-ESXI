@@ -43,7 +43,7 @@ The **virt-who** is the tool that helps in managing the VDC licenses allowing th
 **c4565893a2dfc57dbb73928447d568d8** 
 
 #### 8. Create /etc/virt-who.d/virt-who.conf file with content bellow:
-require('mdlog/override');
+require('virt-who-on-ESX-ESXI/override');
 
 console.log([
 '[vmware]'
