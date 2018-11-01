@@ -31,10 +31,11 @@ The **virt-who** is the tool that helps in managing the VDC licenses allowing th
  **10XXXXXXXX** 
 
 #### 6. Unregister RHEL VM
-```console $ subscription-manager unregister --user=[RHSM_USERNAME] ```
-```console $ subscription-manager clean ```
+```$ subscription-manager unregister --user=[RHSM_USERNAME] ```
+```$ subscription-manager clean ```
 #### 7. Encrypt passwords vCenter and RHSM from **virt-who-password** tool:
-```console $virt-who-password  [Type vCenter password]```
+```console
+virt-who-password  [Type vCenter password]```
 
 **377ead025e077be34b7b620e2e421b4**
 
