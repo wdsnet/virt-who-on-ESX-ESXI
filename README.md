@@ -31,27 +31,27 @@ The **virt-who** is the tool that helps in managing the VDC licenses allowing th
  **10XXXXXXXX** 
 
 #### 6. Unregister RHEL VM
-`$ subscription-manager unregister --user=[RHSM_USERNAME] `
-`$ subscription-manager clean `
+```console $ subscription-manager unregister --user=[RHSM_USERNAME] ```
+```console $ subscription-manager clean ```
 #### 7. Encrypt passwords vCenter and RHSM from **virt-who-password** tool:
-```bash $virt-who-password  [Type vCenter password]```
+```console $virt-who-password  [Type vCenter password]```
 
 **377ead025e077be34b7b620e2e421b4**
 
-```bash $virt-who-password  [Type RHSM password]``` 
+```console $virt-who-password  [Type RHSM password]``` 
 
 **c4565893a2dfc57dbb73928447d568d8** 
 
 #### 8. Create /etc/virt-who.d/virt-who.conf file with content bellow:
-```javascript
+```vim
 [vmware]
 type=esx
-server=**[vCenter IP or hostname]**
-username=**virt-who@vsphere.local** **<------ vCenter username**
-encrypted_password=**377ead025e077be34b7b620e2e421b4**
-owner=**10XXXXXXXX**                                                
-rhsm_username=**[RHSM username]**                                
-rhsm_encrypted_password=**c4565893a2dfc57dbb73928447d568d8**   
+server=[vCenter IP or hostname]
+username=virt-who@vsphere.local  <------ vCenter username
+encrypted_password=377ead025e077be34b7b620e2e421b4
+owner=10XXXXXXXX                                                
+rhsm_username=[RHSM username]                                
+rhsm_encrypted_password=c4565893a2dfc57dbb73928447d568d8   
 env=Library
 hypervisor_id=hostname```
 
