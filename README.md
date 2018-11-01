@@ -49,7 +49,7 @@ $ virt-who-password  [Type RHSM password]
 c4565893a2dfc57dbb73928447d568d8
 ```
 #### 8. Create /etc/virt-who.d/virt-who.conf file with content bellow:
-```vim
+```bash
 [vmware]
 type=esx
 server=vCenter IP or hostname]
@@ -62,12 +62,15 @@ env=Library
 hypervisor_id=hostname
 ```
 #### 9. Start and enable it.
-```console
+```bash
 $ systemctl  start virt-who 
 $ systemctl  enable virt-who 
 ```
 #### 10. Check /var/log/rhsm/rhsm.log log file.
-```console
+```bash
 $ systemctl  enable virt-who `
 ```
-
+#### 11. Subscribe new guests :
+```console
+$ subscription-manager register --user=[RHSM_USERNAME] --auto-atach
+```
