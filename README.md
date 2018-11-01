@@ -19,7 +19,7 @@
    -------------
 The **virt-who** is the tool that helps in managing the VDC licenses allowing the subscribers to subscribe.
 
-#### 1. Create vCenter user (suggest virt-who) and password
+#### 1. Create vCenter user (suggest virt-who@vsphere.local) and password
 #### 2. Set user roles read-only from vCenter
 #### 3. Register RHEL VM for install package from RHEL repo.
   `$ subscription-manager register --user=[RHSM_USERNAME] --auto-atach`
@@ -43,17 +43,19 @@ The **virt-who** is the tool that helps in managing the VDC licenses allowing th
 **c4565893a2dfc57dbb73928447d568d8** 
 
 #### 8. Create /etc/virt-who.d/virt-who.conf file with content bellow:
-``vim
-[vmware]
-type=esx
-server=[vCenter IP or hostname]
-username=virt-who@vsphere.local  <------ vCenter username
-encrypted_password=377ead025e077be34b7b620e2e421b4
-owner=10XXXXXXXX                                                
-rhsm_username=[RHSM username]                                
-rhsm_encrypted_password=c4565893a2dfc57dbb73928447d568d8   
-env=Library
-hypervisor_id=hostname``
+require('mdlog/override');
+
+console.log([
+'[vmware]'
+'type=esx'
+'server=[vCenter IP or hostname]'
+'username=virt-who@vsphere.local' 
+'encrypted_password=377ead025e077be34b7b620e2e421b4'
+'owner=10XXXXXXXX'                                                
+'rhsm_username=[RHSM username]'                                
+'rhsm_encrypted_password=c4565893a2dfc57dbb73928447d568d8'   
+'env=Library'
+'hypervisor_id=hostname'].join('\n'));
 
 #### 9. Start and enable it.
 `$ systemctl  start virt-who `
