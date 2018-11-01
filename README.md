@@ -32,10 +32,8 @@ $ yum install virt-who -y
 #### 5. Get **ORG Id** (Owner) 
 ```console
 $ subscription-manager orgs --user=[RHSM_USERNAME]
+10XXXXXXXX
 ```
-
- **10XXXXXXXX** 
-
 #### 6. Unregister RHEL VM
 ```console
 $ subscription-manager unregister --user=[RHSM_USERNAME] 
@@ -47,7 +45,7 @@ $ virt-who-password  [Type vCenter password]
 377ead025e077be34b7b620e2e421b4
 ```
 ```console 
-$virt-who-password  [Type RHSM password] 
+$ virt-who-password  [Type RHSM password] 
 c4565893a2dfc57dbb73928447d568d8
 ```
 #### 8. Create /etc/virt-who.d/virt-who.conf file with content bellow:
