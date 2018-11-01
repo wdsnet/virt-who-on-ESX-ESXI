@@ -43,19 +43,17 @@ The **virt-who** is the tool that helps in managing the VDC licenses allowing th
 **c4565893a2dfc57dbb73928447d568d8** 
 
 #### 8. Create /etc/virt-who.d/virt-who.conf file with content bellow:
-require('virt-who-on-ESX-ESXI/override');
-
-console.log([
-'[vmware]'
-'type=esx'
-'server=[vCenter IP or hostname]'
-'username=virt-who@vsphere.local' 
-'encrypted_password=377ead025e077be34b7b620e2e421b4'
-'owner=10XXXXXXXX'                                                
-'rhsm_username=[RHSM username]'                                
-'rhsm_encrypted_password=c4565893a2dfc57dbb73928447d568d8'   
-'env=Library'
-'hypervisor_id=hostname'].join('\n'));
+```vim
+[vmware]
+type=esx
+server=vCenter IP or hostname]
+username=virt-who@vsphere.local 
+encrypted_password=377ead025e077be34b7b620e2e421b4
+owner=10XXXXXXXX                                                
+rhsm_username=[RHSM username]                                
+rhsm_encrypted_password=c4565893a2dfc57dbb73928447d568d8   
+env=Library
+hypervisor_id=hostname```
 
 #### 9. Start and enable it.
 `$ systemctl  start virt-who `
