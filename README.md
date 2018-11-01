@@ -22,26 +22,34 @@ The **virt-who** is the tool that helps in managing the VDC licenses allowing th
 #### 1. Create vCenter user (suggest virt-who@vsphere.local) and password
 #### 2. Set user roles read-only from vCenter
 #### 3. Register RHEL VM for install package from RHEL repo.
-  `$ subscription-manager register --user=[RHSM_USERNAME] --auto-atach`
+```console
+$ subscription-manager register --user=[RHSM_USERNAME] --auto-atach
+```
 #### 4. Install **virt-who** package 
-  `$ yum install virt-who -y `
+```console
+$ yum install virt-who -y 
+```
 #### 5. Get **ORG Id** (Owner) 
-`$ subscription-manager orgs --user=[RHSM_USERNAME]`
+```console
+$ subscription-manager orgs --user=[RHSM_USERNAME]
+```
 
  **10XXXXXXXX** 
 
 #### 6. Unregister RHEL VM
-`$ subscription-manager unregister --user=[RHSM_USERNAME] `
-`$ subscription-manager clean `
+```console
+$ subscription-manager unregister --user=[RHSM_USERNAME] 
+$ subscription-manager clean 
+```
 #### 7. Encrypt passwords vCenter and RHSM from **virt-who-password** tool:
-`virt-who-password  [Type vCenter password]`
-
-**377ead025e077be34b7b620e2e421b4**
-
-`console $virt-who-password  [Type RHSM password]` 
-
-**c4565893a2dfc57dbb73928447d568d8** 
-
+```console
+$ virt-who-password  [Type vCenter password]
+377ead025e077be34b7b620e2e421b4
+```
+```console 
+$virt-who-password  [Type RHSM password] 
+c4565893a2dfc57dbb73928447d568d8
+```
 #### 8. Create /etc/virt-who.d/virt-who.conf file with content bellow:
 ```vim
 [vmware]
@@ -53,12 +61,15 @@ owner=10XXXXXXXX
 rhsm_username=[RHSM username]                                
 rhsm_encrypted_password=c4565893a2dfc57dbb73928447d568d8   
 env=Library
-hypervisor_id=hostname```
-
+hypervisor_id=hostname
+```
 #### 9. Start and enable it.
-`$ systemctl  start virt-who `
-`$ systemctl  enable virt-who `
+```console
+$ systemctl  start virt-who 
+$ systemctl  enable virt-who 
+```
 #### 10. Check /var/log/rhsm/rhsm.log log file.
-`$ systemctl  enable virt-who `
-
+```console
+$ systemctl  enable virt-who `
+```
 
