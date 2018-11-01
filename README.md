@@ -68,9 +68,9 @@ $ systemctl  enable virt-who
 ```
 #### 10. Check /var/log/rhsm/rhsm.log log file.
 ```bash
-$ systemctl  enable virt-who `
+$ systemctl  enable virt-who 
 ```
 #### 11. Subscribe new guests :
-```console
+```bash
 $ subscription-manager register --user=[RHSM_USERNAME] --auto-atach
 ```
