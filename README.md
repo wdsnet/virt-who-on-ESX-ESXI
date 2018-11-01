@@ -68,7 +68,7 @@ $ systemctl  enable virt-who
 ```
 #### 10. Check /var/log/rhsm/rhsm.log log file.
 ```bash
-$ systemctl  enable virt-who 
+$ tail -f /var/log/rhsm/rhsm.log
 ```
 #### 11. Subscribe new guests :
 ```bash
